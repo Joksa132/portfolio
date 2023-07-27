@@ -1,9 +1,12 @@
 "use client"
 import Link from "next/link";
-import { useState } from "react";
 
-export default function Nav() {
-  const [activeLink, setActiveLink] = useState<string>('about')
+type Props = {
+  activeLink: string;
+  setActiveLink: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function Nav({ activeLink, setActiveLink }: Props) {
 
   const handleLinkClick = (link: string) => {
     setActiveLink(link)
@@ -27,7 +30,7 @@ export default function Nav() {
         </span>
       </Link>
       <Link href="#contact">
-        <span className={`${activeLink === 'contact' ? 'active-link' : ''} mr-28`} onClick={() => handleLinkClick('contact')}>
+        <span className={`${activeLink === 'contact' ? 'text-red-500' : ''} mr-28`} onClick={() => handleLinkClick('contact')}>
           Contact
         </span>
       </Link>
