@@ -13,6 +13,7 @@ body {
   background-color: #1A1A1A;
 }
 
+/*
 html {
   scroll-snap-type: y mandatory;
 }
@@ -21,7 +22,7 @@ section {
   scroll-snap-align: start;
   scroll-snap-stop: normal;
   overflow-x: hidden;
-}
+}*/
 
 a {
   color: inherit;
@@ -87,4 +88,20 @@ a {
 
 nav {
   background-color: #272727;
+}
+
+.card-left-animation {
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.21, 1.11, 0.81, 0.99);
+  animation-name: moveFromLeft;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.card-right-animation {
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.21, 1.11, 0.81, 0.99);
+  animation-name: moveFromRight;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
