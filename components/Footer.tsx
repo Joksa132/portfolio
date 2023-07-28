@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BiSolidChevronsUp } from 'react-icons/bi'
 
 type Props = {
@@ -21,7 +22,9 @@ export default function Footer({ setActiveLink, sectionRefs }: Props) {
       <button className="absolute rounded-sm bg-blue-400 flex items-center justify-center -top-5 hover:animate-bounce" onClick={() => handleButtonClick()}>
         <BiSolidChevronsUp size={40} />
       </button>
-      <Image src={"/github-mark-white.svg"} alt="GitHub profile" width={40} height={40} quality={100} />
+      <Link href={"https://github.com/Joksa132"}>
+        <Image src={"/github-mark-white.svg"} alt="GitHub profile" width={40} height={40} quality={100} />
+      </Link>
       <Image src={"/resume-icon.svg"} alt="Resume Link" width={50} height={50} quality={100} />
     </footer>
   )
