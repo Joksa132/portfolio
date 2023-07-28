@@ -162,7 +162,7 @@ export default function Home() {
             </div>
           </form>
         </div>
-        {/*<Footer />*/}
+        <Footer setActiveLink={setActiveLink} sectionRefs={sectionRefs} />
       </section>
       <SnackbarProvider />
     </main >
