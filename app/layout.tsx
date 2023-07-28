@@ -5,8 +5,8 @@ import { Poppins } from 'next/font/google'
 const poppins = Poppins({ subsets: ['latin'], weight: '300', })
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Portfolio',
+  title: 'Nikola Joksimovic Portfolio',
+  description: 'Nikola Joksimovic Web Developer Portfolio',
 }
 
 export default function RootLayout({
