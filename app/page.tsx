@@ -5,6 +5,8 @@ import { AiOutlineArrowDown } from 'react-icons/ai'
 import { useEffect, useRef, useState } from "react";
 import TechnologyCard from '@/components/TechnologyCard';
 import { technologies } from '@/utils/technologies';
+import emailjs from '@emailjs/browser';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState<string>("home")
@@ -15,6 +17,7 @@ export default function Home() {
     projects: useRef<HTMLElement>(null),
     contact: useRef<HTMLElement>(null),
   };
+  const formRef = useRef<HTMLFormElement>(null);
   const firstFiveTechnologies = technologies.slice(0, 5);
   const secondFiveTechnologies = technologies.slice(5, 10);
 
@@ -33,7 +36,7 @@ export default function Home() {
     const aboutSectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target.id === "about") {
+          if (entry.target.id === "about" && !isAboutVisible) {
             setIsAboutVisible(entry.isIntersecting);
           }
         });
@@ -41,7 +44,7 @@ export default function Home() {
       { threshold: 0.5 }
     );
 
-    if (sectionRefs.about.current) {
+    if (sectionRefs.about.current && !isAboutVisible) {
       aboutSectionObserver.observe(sectionRefs.about.current);
     }
 
@@ -58,7 +61,19 @@ export default function Home() {
         }
       });
     };
-  }, [sectionRefs]);
+  }, [sectionRefs, isAboutVisible]);
+
+  const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    emailjs.sendForm(process.env.NEXT_PUBLIC_SERVICE_ID || "", process.env.NEXT_PUBLIC_TEMPLATE_ID || "", formRef.current || "", process.env.NEXT_PUBLIC_PUBLIC_KEY)
+      .then((result) => {
+        enqueueSnackbar('Message successfully sent', { variant: 'success' })
+        console.log(result)
+      }, (error) => {
+        enqueueSnackbar('Message failed to send', { variant: 'error' })
+        console.log(error)
+      });
+  }
 
   return (
     <main className='text-white scroll-smooth'>
@@ -74,7 +89,7 @@ export default function Home() {
       <Nav activeLink={activeLink} setActiveLink={setActiveLink} />
       <section className='h-screen flex flex-col items-center' id='about' ref={sectionRefs.about}>
         <div>
-          <h2 className='text-6xl mt-20 border-b-8 border-blue-400'>About</h2>
+          <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>About</h2>
         </div>
         <div className='mt-20 flex flex-col items-center w-full'>
           <p className='text-2xl w-2/5'>
@@ -97,14 +112,52 @@ export default function Home() {
       </section>
       <section className='h-screen flex justify-center' id='projects' ref={sectionRefs.projects}>
         <div>
-          <h2 className='text-6xl mt-20 border-b-8 border-blue-400'>Projects</h2>
+          <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>Projects</h2>
         </div>
       </section>
-      <section className='h-screen flex justify-center' id='contact' ref={sectionRefs.contact}>
+      <section className='h-screen flex flex-col items-center' id='contact' ref={sectionRefs.contact}>
         <div>
-          <h2 className='text-6xl mt-20 border-b-8 border-blue-400'>Contact</h2>
+          <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>Contact</h2>
+        </div>
+        <form ref={formRef} onSubmit={handleEmailSubmit} className='flex flex-col items-center gap-2 mt-20 w-full'>
+          <input
+            type="text"
+            name='user_name'
+            id='user_name'
+            placeholder='Name'
+            required
+            className='bg-zinc-800 p-2 w-1/4 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-400'
+          />
+          <input
+            type="email"
+            name="user_email"
+            id="user_email"
+            placeholder='Email'
+            required
+            className='bg-zinc-800 p-2 w-1/4 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-400'
+          />
+          <textarea
+            name='message'
+            id='message'
+            placeholder='Message'
+            required
+            className='bg-zinc-800 p-2 w-1/4 rounded-sm resize-none focus:outline-none focus:ring-1 focus:ring-blue-400'
+            rows={6}
+          />
+          <div className='flex justify-end w-1/4 text-xl font-bold mt-2'>
+            <button
+              type='submit'
+              className='tracking-wider border-b-2 border-blue-400 px-2 hover:border-2 hover:bg-blue-400 hover:text-2xl hover:rounded-sm'
+            >
+              SUBMIT
+            </button>
+          </div>
+        </form>
+        <div className='flex items-center gap-4 mt-12'>
+
         </div>
       </section>
+      <SnackbarProvider />
     </main >
   )
 }
