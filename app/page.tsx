@@ -36,8 +36,8 @@ export default function Home() {
     const aboutSectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target.id === "about" && !isAboutVisible) {
-            setIsAboutVisible(entry.isIntersecting);
+          if (entry.target.id === "about") {
+            setIsAboutVisible(isVisible => !isVisible ? entry.isIntersecting : true);
           }
         });
       },
@@ -97,21 +97,21 @@ export default function Home() {
       </section>
       <Nav activeLink={activeLink} setActiveLink={setActiveLink} sectionRefs={sectionRefs} />
       <section className='h-screen flex flex-col items-center' id='about' ref={sectionRefs.about}>
-        <div>
+        <div className='w-2/4 flex'>
           <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>About</h2>
         </div>
-        <div className='mt-20 flex flex-col items-center w-full'>
-          <p className='text-2xl w-2/4'>
+        <div className='mt-5 flex flex-col items-center w-full'>
+          <p className='text-lg w-2/4'>
             I am a Bachelor with Honours in Information Technology Engineering, commited to continuous
             learning with a constant drive to improve my skills in Web Development.
           </p>
-          <div className="flex w-2/4 mt-16 flex-col gap-2">
-            <div className={`first-row flex gap-2 ${isAboutVisible ? 'card-left-animation' : ''}`}>
+          <div className="w-2/4 mt-10 grid gap-2">
+            <div className={`first-row grid grid-cols-5 gap-2 ${isAboutVisible ? 'card-left-animation' : ''}`}>
               {firstFiveTechnologies.map((technology, index) => (
                 <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
               ))}
             </div>
-            <div className={`second-row flex gap-2 ${isAboutVisible ? 'card-right-animation' : ''}`}>
+            <div className={`second-row grid grid-cols-5 gap-2 ${isAboutVisible ? 'card-right-animation' : ''}`}>
               {secondFiveTechnologies.map((technology, index) => (
                 <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
               ))}
