@@ -3,10 +3,11 @@
 type Props = {
   activeLink: string;
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
-  sectionRefs: { [key: string]: React.RefObject<HTMLElement> }
+  sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
+  showNavBackground: boolean;
 }
 
-export default function Nav({ activeLink, setActiveLink, sectionRefs }: Props) {
+export default function Nav({ activeLink, setActiveLink, sectionRefs, showNavBackground }: Props) {
 
   const handleLinkClick = (link: string) => {
     const sectionRef = sectionRefs[link]
@@ -17,7 +18,7 @@ export default function Nav({ activeLink, setActiveLink, sectionRefs }: Props) {
   }
 
   return (
-    <nav className="w-full py-4 shadow-lg flex gap-10 items-center justify-end text-xl sticky top-0 z-50">
+    <nav className={`w-full py-4 flex gap-10 items-center justify-end text-xl sticky top-0 z-50 ${showNavBackground ? 'shadow-lg' : ''}`} style={showNavBackground ? { backgroundColor: "#272727" } : {}}>
       <span className={`${activeLink === 'home' ? 'text-blue-400' : ''} cursor-pointer font-bold`} onClick={() => handleLinkClick('home')}>
         Home
       </span>
