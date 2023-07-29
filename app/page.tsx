@@ -115,12 +115,12 @@ export default function Home() {
             learning with a constant drive to improve my skills in Web Development.
           </p>
           <div className="w-2/4 mt-10 grid gap-2">
-            <div className={`first-row grid grid-cols-5 gap-2 ${isAboutVisible ? 'card-left-animation' : ''}`}>
+            <div className={`first-row grid grid-cols-5 gap-2 opacity-0 ${isAboutVisible ? 'card-left-animation' : ''}`}>
               {firstFiveTechnologies.map((technology, index) => (
                 <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
               ))}
             </div>
-            <div className={`second-row grid grid-cols-5 gap-2 ${isAboutVisible ? 'card-right-animation' : ''}`}>
+            <div className={`second-row grid grid-cols-5 gap-2 opacity-0 ${isAboutVisible ? 'card-right-animation' : ''}`}>
               {secondFiveTechnologies.map((technology, index) => (
                 <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
               ))}
