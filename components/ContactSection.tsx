@@ -1,5 +1,5 @@
 "use client"
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import Footer from '@/components/Footer';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
@@ -9,14 +9,26 @@ type Props = {
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
 }
 
+type formData = {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [formData, setFormData] = useState<formData>({
+    name: '',
+    email: '',
+    message: ''
+  })
 
   const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     emailjs.sendForm(process.env.NEXT_PUBLIC_SERVICE_ID || "", process.env.NEXT_PUBLIC_TEMPLATE_ID || "", formRef.current || "", process.env.NEXT_PUBLIC_PUBLIC_KEY)
       .then((result) => {
         enqueueSnackbar('Message successfully sent', { variant: 'success' })
+        setFormData({ name: '', email: '', message: '' })
         console.log(result)
       }, (error) => {
         enqueueSnackbar('Message failed to send', { variant: 'error' })
@@ -36,6 +48,8 @@ export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
             placeholder='Name'
             required
             className='bg-zinc-800 p-2 w-1/4 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-400'
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            value={formData.name}
           />
           <input
             type="email"
@@ -44,6 +58,8 @@ export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
             placeholder='Email'
             required
             className='bg-zinc-800 p-2 w-1/4 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-400'
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            value={formData.email}
           />
           <textarea
             name='message'
@@ -52,6 +68,8 @@ export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
             required
             className='bg-zinc-800 p-2 w-1/4 rounded-sm resize-none focus:outline-none focus:ring-1 focus:ring-blue-400'
             rows={6}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            value={formData.message}
           />
           <div className='flex justify-end w-1/4 text-xl font-bold mt-2'>
             <button
