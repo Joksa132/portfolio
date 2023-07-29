@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   const [activeLink, setActiveLink] = useState<string>("home")
   const [isAboutVisible, setIsAboutVisible] = useState<boolean>(false);
+  const [showNavBackground, setShowNavBackground] = useState<boolean>(false)
   const sectionRefs = {
     home: useRef<HTMLElement>(null),
     about: useRef<HTMLElement>(null),
@@ -27,6 +28,7 @@ export default function Home() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveLink(entry.target.id);
+            setShowNavBackground(entry.target.id !== 'home');
           }
         });
       },
@@ -85,17 +87,24 @@ export default function Home() {
 
   return (
     <main className='text-white scroll-smooth'>
+      <Nav activeLink={activeLink} setActiveLink={setActiveLink} sectionRefs={sectionRefs} showNavBackground={showNavBackground} />
       <section className="flex flex-col items-center justify-center h-screen text-6xl gap-4" id='home' ref={sectionRefs.home}>
         <span className="text-left-animation">Hello, I'm <span className="text-blue-400">Nikola</span>.</span>
         <span className="text-right-animation mb-6">I'm a web developer.</span>
         <button
-          className="btn-animation rounded-sm text-3xl border-2 border-blue-400 px-6 py-2 text-blue-400 flex items-center gap-4"
+          className="btn-animation rounded-sm text-3xl border-2 border-blue-400 px-6 py-2 text-blue-400 flex items-center gap-4
+          relative ease-in duration-500 z-1
+          before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10
+          after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10
+          before:top-0 before:bottom-0 after:top-0 after:bottom-0
+          before:right-full before:left-0
+          after:right-0 after:left-full
+          hover:before:right-1/2 hover:after:left-1/2 hover:text-white"
           onClick={handleHeroButtonClick}
         >
           Check my work <AiOutlineArrowDown />
         </button>
       </section>
-      <Nav activeLink={activeLink} setActiveLink={setActiveLink} sectionRefs={sectionRefs} />
       <section className='h-screen flex flex-col items-center' id='about' ref={sectionRefs.about}>
         <div className='w-2/4 flex'>
           <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>About</h2>
@@ -119,8 +128,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className='h-screen flex justify-center' id='projects' ref={sectionRefs.projects}>
-        <div>
+      <section className='h-screen flex flex-col items-center' id='projects' ref={sectionRefs.projects}>
+        <div className='flex w-2/4'>
           <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>Projects</h2>
         </div>
       </section>
@@ -155,10 +164,11 @@ export default function Home() {
             <div className='flex justify-end w-1/4 text-xl font-bold mt-2'>
               <button
                 type='submit'
-                className='tracking-widest border-b-2 border-blue-400 px-2 hover:border-2 hover:bg-blue-400 hover:text-2xl hover:rounded-sm'
+                className="tracking-widest border-b-2 border-blue-400 px-2"
               >
                 SUBMIT
               </button>
+              {/*tracking-widest border-b-2 border-blue-400 px-2*/}
             </div>
           </form>
         </div>
