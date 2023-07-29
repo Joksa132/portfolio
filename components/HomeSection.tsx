@@ -1,14 +1,12 @@
 "use client"
-import { useState } from "react";
 import { AiOutlineArrowDown } from 'react-icons/ai'
 
 type Props = {
-  activeLink: string;
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
   sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
 }
 
-export default function HomeSection({ activeLink, setActiveLink, sectionRefs }: Props) {
+export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
 
   const handleHeroButtonClick = () => {
     const sectionRef = sectionRefs.projects;
