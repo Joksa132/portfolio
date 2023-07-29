@@ -1,7 +1,7 @@
 # Portfolio
 
 ## Description
-Personal portfolio website made using Next.js 13 with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages create-next-app).
+Personal portfolio website made using Next.js 13 with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Technologies
 * [TypeScript](https://www.typescriptlang.org/)
