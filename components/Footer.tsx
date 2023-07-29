@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BiSolidChevronsUp } from 'react-icons/bi'
+import { MdKeyboardDoubleArrowUp } from 'react-icons/md'
 
 type Props = {
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
@@ -18,9 +18,9 @@ export default function Footer({ setActiveLink, sectionRefs }: Props) {
   }
 
   return (
-    <footer className="w-full py-8 shadow-lg flex justify-center gap-4 items-center text-white relative">
-      <button className="absolute rounded-sm bg-blue-400 flex items-center justify-center -top-5 hover:animate-bounce" onClick={() => handleButtonClick()}>
-        <BiSolidChevronsUp size={40} />
+    <footer className="w-full py-8 shadow-lg flex justify-center gap-20 items-center text-white">
+      <button className="rounded-3xl bg-blue-400 flex items-center justify-center hover:animate-bounce fixed bottom-10 right-10 z-50" onClick={() => handleButtonClick()}>
+        <MdKeyboardDoubleArrowUp size={30} />
       </button>
       <Link href={"https://github.com/Joksa132"}>
         <Image src={"/github-mark-white.svg"} alt="GitHub profile" width={40} height={40} quality={100} />
