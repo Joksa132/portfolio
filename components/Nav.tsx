@@ -19,7 +19,7 @@ export default function Nav({ activeLink, setActiveLink, sectionRefs, showNavBac
 
   return (
     <nav
-      className={`w-full py-4 flex gap-5 items-center justify-end text-xl sticky top-0 z-50 ${showNavBackground ? 'shadow-lg' : ''}`}
+      className={`w-full py-4 flex gap-5 items-center justify-end text-xl sticky top-0 z-30 ${showNavBackground ? 'shadow-lg' : ''}`}
       style={showNavBackground ? { backgroundColor: "#272727" } : {}}
     >
       <span
