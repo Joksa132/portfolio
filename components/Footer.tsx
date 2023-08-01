@@ -25,7 +25,7 @@ export default function Footer({ setActiveLink, sectionRefs }: Props) {
       <Link href={"https://github.com/Joksa132"}>
         <Image src={"/github-mark-white.svg"} alt="GitHub profile" width={40} height={40} quality={100} />
       </Link>
-      <Link href={"/"}>
+      <Link href={"/cv.pdf"}>
         <span className="text-4xl cursor-pointer select-none font-bold">CV</span>
       </Link>
     </footer>
