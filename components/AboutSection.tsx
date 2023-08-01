@@ -11,7 +11,7 @@ export default function AboutSection({ sectionRefs, isAboutVisible }: Props) {
   const secondFiveTechnologies = technologies.slice(5, 10);
 
   return (
-    <section className='min-h-screen overflow-y-auto flex flex-col items-center' id='about' ref={sectionRefs.about}>
+    <section className='flex flex-col items-center' id='about' ref={sectionRefs.about}>
       <div className='w-4/6 flex'>
         <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>About</h2>
       </div>
