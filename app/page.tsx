@@ -25,11 +25,10 @@ export default function Home() {
           if (entry.isIntersecting) {
             setActiveLink(entry.target.id);
             setShowNavBackground(entry.target.id !== 'home');
-            console.log("Active section:", entry.target.id);
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.8 }
     );
 
     const aboutSectionObserver = new IntersectionObserver(
