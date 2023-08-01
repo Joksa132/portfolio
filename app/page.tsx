@@ -25,10 +25,11 @@ export default function Home() {
           if (entry.isIntersecting) {
             setActiveLink(entry.target.id);
             setShowNavBackground(entry.target.id !== 'home');
+            console.log("Active section:", entry.target.id);
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.6 }
     );
 
     const aboutSectionObserver = new IntersectionObserver(
@@ -39,11 +40,26 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.8 }
+    );
+
+    const projectsSectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.id === "projects") {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
     );
 
     if (sectionRefs.about.current && !isAboutVisible) {
       aboutSectionObserver.observe(sectionRefs.about.current);
+    }
+
+    if (sectionRefs.projects.current && !isAboutVisible) {
+      projectsSectionObserver.observe(sectionRefs.projects.current)
     }
 
     Object.values(sectionRefs).forEach((sectionRef) => {
