@@ -1,7 +1,7 @@
 export const projects = [
   {
     name: "To-do List",
-    image: "/test-image.jpg",
+    image: "/to-do-list.png",
     description: "To-do list app built using React, Next.js, TypeScript, Prisma and PostgreSQL",
     liveLink: "https://todo-list-joksa132.vercel.app",
     gitHubLink: {
