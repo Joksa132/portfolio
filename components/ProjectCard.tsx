@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from 'react'
 import Modal from "./Modal";
+import ImageModal from "./ImageModal";
 
 type Project = {
   name: string;
@@ -22,12 +23,25 @@ type Props = {
 
 export default function ProjectCard({ project }: Props) {
   const [showModal, setShowModal] = useState<boolean>(false)
+  const [showImageModal, setShowImageModal] = useState<boolean>(false)
 
   return (
     <div className="flex gap-5 justify-around w-4/6 mt-10">
       {project.right ?
         <>
-          <Image src={project.image} alt={project.name + 'project image'} width={600} height={600} quality={100} />
+          <Image
+            src={project.image}
+            alt={project.name + 'project image'}
+            width={1920}
+            height={1080}
+            quality={100}
+            sizes="40vw"
+            onClick={() => setShowImageModal(true)}
+            style={{ cursor: "pointer" }}
+          />
+          {showImageModal && (
+            <ImageModal image={project.image} setShowImageModal={setShowImageModal} />
+          )}
           <div className="flex flex-col">
             <h2 className="text-4xl font-bold mb-6">{project.name}</h2>
             <p className="text-lg">{project.description}</p>
@@ -122,7 +136,19 @@ export default function ProjectCard({ project }: Props) {
               </div>
             </div>
           </div>
-          <Image src={project.image} alt={project.name + 'project image'} width={600} height={600} quality={100} />
+          <Image
+            src={project.image}
+            alt={project.name + 'project image'}
+            width={1920}
+            height={1080}
+            quality={100}
+            sizes="40vw"
+            onClick={() => setShowImageModal(true)}
+            style={{ cursor: "pointer" }}
+          />
+          {showImageModal && (
+            <ImageModal image={project.image} setShowImageModal={setShowImageModal} />
+          )}
         </>
       }
     </div >
