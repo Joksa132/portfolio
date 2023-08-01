@@ -37,10 +37,10 @@ export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
   }
 
   return (
-    <section className='min-h-screen overflow-y-auto flex flex-col justify-between' id='contact' ref={sectionRefs.contact}>
+    <section className='flex flex-col justify-between' id='contact' ref={sectionRefs.contact}>
       <div className='flex flex-col items-center'>
         <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>Contact</h2>
-        <form ref={formRef} onSubmit={handleEmailSubmit} className='flex flex-col items-center gap-2 mt-20 w-1/4'>
+        <form ref={formRef} onSubmit={handleEmailSubmit} className='flex flex-col items-center gap-2 mt-10 w-1/4'>
           <div className="flex flex-col w-full gap-1">
             <label htmlFor="user_name">Name *</label>
             <input
