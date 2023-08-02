@@ -12,10 +12,10 @@ export default function Home() {
   const [isAboutVisible, setIsAboutVisible] = useState<boolean>(false);
   const [showNavBackground, setShowNavBackground] = useState<boolean>(false)
   const sectionRefs = {
-    home: useRef<HTMLElement>(null),
-    about: useRef<HTMLElement>(null),
-    projects: useRef<HTMLElement>(null),
-    contact: useRef<HTMLElement>(null),
+    home: useRef<HTMLDivElement>(null),
+    about: useRef<HTMLDivElement>(null),
+    projects: useRef<HTMLDivElement>(null),
+    contact: useRef<HTMLDivElement>(null),
   };
 
   useEffect(() => {
