@@ -3,7 +3,7 @@ import { AiOutlineArrowDown } from 'react-icons/ai'
 
 type Props = {
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
-  sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
+  sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };
 }
 
 export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
@@ -17,7 +17,7 @@ export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center h-screen text-6xl gap-4" id='home' ref={sectionRefs.home}>
+    <div className="flex flex-col items-center justify-center h-screen text-6xl gap-4" id='home' ref={sectionRefs.home}>
       <span className="text-left-animation">Hello, I'm <span className="text-blue-400 font-bold">Nikola</span>.</span>
       <span className="text-right-animation mb-6">I'm a web developer.</span>
       <button
@@ -33,6 +33,6 @@ export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
       >
         Check my work <AiOutlineArrowDown />
       </button>
-    </section>
+    </div>
   )
 }
