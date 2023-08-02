@@ -2,7 +2,7 @@ import { projects } from "@/utils/projects";
 import ProjectCard from "./ProjectCard";
 
 type Props = {
-  sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
+  sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };
 }
 
 export default function ProjectsSection({ sectionRefs }: Props) {
