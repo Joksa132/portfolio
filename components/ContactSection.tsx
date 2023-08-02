@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 type Props = {
-  sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
+  sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
 }
 
