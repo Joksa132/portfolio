@@ -3,7 +3,7 @@ import { technologies } from '@/utils/technologies';
 
 type Props = {
   isAboutVisible: boolean;
-  sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
+  sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };
 }
 
 export default function AboutSection({ sectionRefs, isAboutVisible }: Props) {
