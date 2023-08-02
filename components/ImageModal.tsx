@@ -10,13 +10,13 @@ export default function ImageModal({ setShowImageModal, image }: Props) {
   return (
     <>
       <div className="justify-center items-center flex fixed inset-0 z-50" onClick={() => setShowImageModal(false)}>
-        <div className="rounded-lg relative flex bg-[#272727] p-2 w-9/12">
+        <div className="rounded-lg relative flex bg-[#272727] p-2 max-w-full w-9/12 h-auto">
           <Image
             src={image}
             width={1920}
             height={1080}
             sizes="100vw"
-            style={{ height: "auto", cursor: "pointer" }}
+            style={{ cursor: "pointer" }}
             quality={100}
             alt="Modal image"
           />
