@@ -21,14 +21,14 @@ export default function Nav({ activeLink, setActiveLink, sectionRefs, showNavBac
     <nav
       className={`w-full py-4 flex gap-5 items-center justify-end text-xl sticky top-0 z-30 
         max-md:text-lg max-[600px]:text-sm max-[600px]:gap-2
-        max-[500px]:text-xs max-[500px]:gap-0
+        max-[500px]:text-xs max-[500px]:gap-0 max-[500px]:py-1
         max-[400px]:justify-between
       ${showNavBackground ? 'shadow-lg' : ''}`}
       style={showNavBackground ? { backgroundColor: "#272727" } : {}}
     >
       <span
         className={`${activeLink === 'home' ? 'text-blue-400' : ''} cursor-pointer font-bold
-        relative ease-in duration-300 z-10 px-2
+        relative ease-in duration-300 z-10 px-2 max-[400px]:px-0
         before:bg-blue-400 before:ease-in before:duration-300 before:-z-10 before:absolute
         after:bg-blue-400 after:ease-in after:duration-300 after:-z-10 after:absolute
         before:top-0 before:right-full before:bottom-0 before:left-0
@@ -39,7 +39,7 @@ export default function Nav({ activeLink, setActiveLink, sectionRefs, showNavBac
       </span>
       <span
         className={`${activeLink === 'about' ? 'text-blue-400' : ''} cursor-pointer font-bold
-        relative ease-in duration-300 z-10 px-2
+        relative ease-in duration-300 z-10 px-2 max-[400px]:px-0
         before:bg-blue-400 before:ease-in before:duration-300 before:-z-10 before:absolute
         after:bg-blue-400 after:ease-in after:duration-300 after:-z-10 after:absolute
         before:top-0 before:right-full before:bottom-0 before:left-0
@@ -50,7 +50,7 @@ export default function Nav({ activeLink, setActiveLink, sectionRefs, showNavBac
       </span>
       <span
         className={`${activeLink === 'projects' ? 'text-blue-400' : ''} cursor-pointer font-bold
-        relative ease-in duration-300 z-10 px-2
+        relative ease-in duration-300 z-10 px-2 max-[400px]:px-0
         before:bg-blue-400 before:ease-in before:duration-300 before:-z-10 before:absolute
         after:bg-blue-400 after:ease-in after:duration-300 after:-z-10 after:absolute
         before:top-0 before:right-full before:bottom-0 before:left-0
@@ -61,7 +61,7 @@ export default function Nav({ activeLink, setActiveLink, sectionRefs, showNavBac
       </span>
       <span
         className={`${activeLink === 'contact' ? 'text-blue-400' : ''} cursor-pointer font-bold mr-28
-        relative ease-in duration-300 z-10 px-2
+        relative ease-in duration-300 z-10 px-2 max-[400px]:px-0
         before:bg-blue-400 before:ease-in before:duration-300 before:-z-10 before:absolute
         after:bg-blue-400 after:ease-in after:duration-300 after:-z-10 after:absolute
         before:top-0 before:right-full before:bottom-0 before:left-0
