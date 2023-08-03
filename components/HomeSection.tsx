@@ -23,7 +23,7 @@ export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
       ref={sectionRefs.home}
     >
       <span className="text-left-animation">Hello, I'm <span className="text-blue-400 font-bold">Nikola</span>.</span>
-      <span className="text-right-animation mb-6">I'm a web developer.</span>
+      <span className="text-right-animation mb-6 max-[400px]:mb-2">I'm a web developer.</span>
       <button
         className="btn-animation rounded-sm text-3xl border-2 border-blue-400 px-6 py-2 text-blue-400 flex items-center gap-4
           relative ease-in duration-500 z-1 font-bold
@@ -33,7 +33,8 @@ export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
           before:right-full before:left-0
           after:right-0 after:left-full
           hover:before:right-1/2 hover:after:left-1/2 hover:text-white
-          max-md:text-2xl max-[400px]:text-lg"
+          max-[900px]:text-2xl
+          max-[500px]:text-xl max-[400px]:text-sm"
         onClick={handleHeroButtonClick}
       >
         Check my work <AiOutlineArrowDown />
