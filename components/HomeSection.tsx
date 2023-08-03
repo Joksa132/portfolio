@@ -17,7 +17,11 @@ export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-6xl gap-4" id='home' ref={sectionRefs.home}>
+    <div className="flex flex-col items-center justify-center h-screen text-6xl gap-4 
+    max-[900px]:text-4xl max-sm:text-4xl max-[500px]:text-3xl max-[390px]:text-2xl"
+      id='home'
+      ref={sectionRefs.home}
+    >
       <span className="text-left-animation">Hello, I'm <span className="text-blue-400 font-bold">Nikola</span>.</span>
       <span className="text-right-animation mb-6">I'm a web developer.</span>
       <button
@@ -28,7 +32,8 @@ export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
           before:top-0 before:bottom-0 after:top-0 after:bottom-0
           before:right-full before:left-0
           after:right-0 after:left-full
-          hover:before:right-1/2 hover:after:left-1/2 hover:text-white"
+          hover:before:right-1/2 hover:after:left-1/2 hover:text-white
+          max-md:text-2xl max-[400px]:text-lg"
         onClick={handleHeroButtonClick}
       >
         Check my work <AiOutlineArrowDown />
