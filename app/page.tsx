@@ -2,10 +2,10 @@
 
 import Nav from '@/components/Nav'
 import { useEffect, useRef, useState } from "react";
-import HomeSection from '@/components/HomeSection';
-import AboutSection from '@/components/AboutSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import ContactSection from '@/components/ContactSection';
+import HomeSection from '@/components/Sections/HomeSection';
+import AboutSection from '@/components/Sections/AboutSection';
+import ProjectsSection from '@/components/Sections/ProjectsSection';
+import ContactSection from '@/components/Sections/ContactSection';
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState<string>("home")
