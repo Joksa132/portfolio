@@ -80,11 +80,7 @@ export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
           <div className='flex justify-end w-full text-xl font-bold mt-2'>
             <button
               type='submit'
-              className="tracking-widest border-b-2 border-blue-400 px-2 py-1
-                relative ease-in duration-500 z-10
-                before:bg-blue-400 before:ease-in before:duration-300 before:-z-10 before:absolute
-                after:bg-blue-400 after:ease-in after:duration-300 after:-z-10 after:absolute
-                before:top-full before:right-0 before:bottom-0 before:left-0 hover:before:top-0"
+              className="tracking-widest border-b-2 border-blue-400 px-2 py-1 relative ease-in duration-500 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:-z-10 before:absolute after:bg-blue-400 after:ease-in after:duration-300 after:-z-10 after:absolute before:top-full before:right-0 before:bottom-0 before:left-0 hover:before:top-0"
             >
               SUBMIT
             </button>
