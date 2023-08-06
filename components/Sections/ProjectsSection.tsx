@@ -1,5 +1,5 @@
 import { projects } from "@/utils/projects";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../Cards/ProjectCard";
 
 type Props = {
   sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };

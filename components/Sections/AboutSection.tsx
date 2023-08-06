@@ -1,4 +1,4 @@
-import TechnologyCard from '@/components/TechnologyCard';
+import TechnologyCard from '@/components/Cards/TechnologyCard';
 import { technologies } from '@/utils/technologies';
 
 type Props = {
