@@ -2,8 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from 'react'
-import Modal from "./Modal";
-import ImageModal from "./ImageModal";
+import Modal from "../Modals/Modal";
+import ImageModal from "../Modals/ImageModal";
 
 type Project = {
   name: string;
