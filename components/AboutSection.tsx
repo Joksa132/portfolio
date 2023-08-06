@@ -13,8 +13,7 @@ export default function AboutSection({ sectionRefs, isAboutVisible }: Props) {
   return (
     <section className='flex flex-col items-center' id='about' ref={sectionRefs.about}>
       <div className='w-4/6 flex'>
-        <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold 
-        max-md:text-4xl max-md:border-b-4 max-[500px]:text-3xl max-[400px]:text-2xl'
+        <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold max-md:text-4xl max-md:border-b-4 max-[500px]:text-3xl max-[400px]:text-2xl'
         >
           About
         </h2>
