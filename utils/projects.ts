@@ -11,7 +11,7 @@ export const projects = [
   },
   {
     name: "Ecommerce",
-    image: "/test-image.jpg",
+    image: "/ecommerce.png",
     description: "Ecommerce website built using React, Next.js, Prisma and PostgreSQL",
     liveLink: "https://ecommerce-joksa132.vercel.app",
     gitHubLink: {
