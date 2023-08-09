@@ -10,7 +10,7 @@ export default function ImageModal({ setShowImageModal, image }: Props) {
   return (
     <>
       <div className="justify-center items-center flex fixed inset-0 z-50" onClick={() => setShowImageModal(false)}>
-        <div className="rounded-lg relative flex bg-[#272727] p-2 max-w-full w-9/12 h-auto">
+        <div className="rounded-lg relative bg-[#272727] p-2 max-w-full w-9/12 h-auto max-lg:w-10/12 max-[850px]:w-full">
           <Image
             src={image}
             width={1920}
