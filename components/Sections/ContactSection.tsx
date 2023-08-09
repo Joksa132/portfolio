@@ -39,8 +39,8 @@ export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
   return (
     <section className='flex flex-col justify-between' id='contact' ref={sectionRefs.contact}>
       <div className='flex flex-col items-center'>
-        <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold'>Contact</h2>
-        <form ref={formRef} onSubmit={handleEmailSubmit} className='flex flex-col items-center gap-2 mt-10 w-1/4'>
+        <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold max-[550px]:text-5xl'>Contact</h2>
+        <form ref={formRef} onSubmit={handleEmailSubmit} className='flex flex-col items-center gap-2 mt-10 w-1/4 max-xl:w-1/3 max-lg:w-2/4 max-[550px]:w-3/4'>
           <div className="flex flex-col w-full gap-1">
             <label htmlFor="user_name">Name *</label>
             <input
