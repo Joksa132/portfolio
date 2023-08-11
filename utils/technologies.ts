@@ -21,7 +21,7 @@ export const technologies = [
   },
   {
     name: 'NEXT.JS',
-    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+    image: 'nextjs-icon.svg',
   },
   {
     name: 'NODE.JS',
@@ -29,7 +29,7 @@ export const technologies = [
   },
   {
     name: 'EXPRESS',
-    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+    image: 'express-icon.svg',
   },
   {
     name: 'MONGODB',
