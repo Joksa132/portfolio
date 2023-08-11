@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from 'react'
 import Modal from "../Modals/Modal";
 import ImageModal from "../Modals/ImageModal";
+import { enqueueSnackbar } from "notistack";
 
 type Project = {
   name: string;
@@ -45,13 +46,20 @@ export default function ProjectCard({ project }: Props) {
             <h2 className="text-4xl font-bold mb-6 max-lg:text-3xl max-[400px]:text-2xl">{project.name}</h2>
             <p className="text-lg max-[400px]:text-sm">{project.description}</p>
             <div className="flex items-center gap-4 mt-6">
-              <Link
-                href={project.liveLink}
-                target="_blank"
-                className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
-              >
-                Live preview
-              </Link>
+              {project.liveLink === "" ?
+                <button
+                  onClick={() => enqueueSnackbar('Live preview not available. No free backend host.', { variant: 'error' })}
+                  className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
+                >
+                  Live preview
+                </button>
+                : <Link
+                  href={project.liveLink}
+                  target="_blank"
+                  className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
+                >
+                  Live preview
+                </Link>}
               <div>
                 {project.gitHubLink.backend ?
                   <>
@@ -91,13 +99,20 @@ export default function ProjectCard({ project }: Props) {
             <h2 className="text-4xl font-bold mb-6 max-lg:text-3xl max-[400px]:text-2xl">{project.name}</h2>
             <p className="text-lg max-[400px]:text-sm">{project.description}</p>
             <div className="flex items-center gap-4 mt-6">
-              <Link
-                href={project.liveLink}
-                target="_blank"
-                className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
-              >
-                Live preview
-              </Link>
+              {project.liveLink === "" ?
+                <button
+                  onClick={() => enqueueSnackbar('Live preview not available. No free backend host.', { variant: 'error' })}
+                  className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
+                >
+                  Live preview
+                </button>
+                : <Link
+                  href={project.liveLink}
+                  target="_blank"
+                  className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
+                >
+                  Live preview
+                </Link>}
               <div>
                 {project.gitHubLink.backend ?
                   <>
