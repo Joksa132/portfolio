@@ -1,7 +1,7 @@
 export const projects = [
   {
     name: "To-do List",
-    image: "/to-do-list.png",
+    image: "/projects/to-do-list.png",
     description: "To-do list app built using React, Next.js, TypeScript, Prisma and PostgreSQL",
     liveLink: "https://todo-list-joksa132.vercel.app",
     gitHubLink: {
@@ -11,7 +11,7 @@ export const projects = [
   },
   {
     name: "Ecommerce",
-    image: "/ecommerce.png",
+    image: "/projects/ecommerce.png",
     description: "Ecommerce website built using React, Next.js, Prisma and PostgreSQL",
     liveLink: "https://ecommerce-joksa132.vercel.app",
     gitHubLink: {
@@ -21,7 +21,7 @@ export const projects = [
   },
   {
     name: "Odinbook",
-    image: "/test-image.jpg",
+    image: "/projects/odinbook.png",
     description: "Social media website built using React, Express, Mongoose and MongoDB",
     liveLink: "",
     gitHubLink: {
