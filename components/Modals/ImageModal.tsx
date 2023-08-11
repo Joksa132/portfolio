@@ -14,7 +14,7 @@ export default function ImageModal({ setShowImageModal, image }: Props) {
             width={1920}
             height={1080}
             sizes="100vw"
-            style={{ cursor: "pointer", maxHeight: "95vh", objectFit: "contain" }}
+            style={{ cursor: "pointer", maxHeight: "90vh", objectFit: "contain" }}
             alt="Modal image"
           />
         </div>
