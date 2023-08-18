@@ -32,7 +32,7 @@ export const projects = [
   },
   {
     name: "Blog",
-    image: "/test-image.jpg",
+    image: "/projects/blog.png",
     description: "Blog website built using React, Express, Mongoose and MongoDB",
     liveLink: "",
     gitHubLink: {
