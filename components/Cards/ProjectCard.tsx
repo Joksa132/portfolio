@@ -48,7 +48,7 @@ export default function ProjectCard({ project }: Props) {
             <div className="flex items-center gap-4 mt-6">
               {project.liveLink === "" ?
                 <button
-                  onClick={() => enqueueSnackbar('Live preview not available. No free backend host.', { variant: 'error' })}
+                  onClick={() => enqueueSnackbar('Live preview not available. No free Express backend host.', { variant: 'error' })}
                   className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
                 >
                   Live preview
@@ -101,7 +101,7 @@ export default function ProjectCard({ project }: Props) {
             <div className="flex items-center gap-4 mt-6">
               {project.liveLink === "" ?
                 <button
-                  onClick={() => enqueueSnackbar('Live preview not available. No free backend host.', { variant: 'error' })}
+                  onClick={() => enqueueSnackbar('Live preview not available. No free Express backend host.', { variant: 'error' })}
                   className="border-2 p-2 font-bold border-blue-400 rounded-sm text-blue-400 relative ease-in duration-300 z-10 before:bg-blue-400 before:ease-in before:duration-300 before:absolute before:-z-10 after:bg-blue-400 after:ease-in after:duration-300 after:absolute after:-z-10 before:top-0 before:bottom-0 after:top-0 after:bottom-0 before:right-full before:left-0 after:right-0 after:left-full hover:before:right-1/2 hover:after:left-1/2 hover:text-white max-[400px]:text-sm"
                 >
                   Live preview
