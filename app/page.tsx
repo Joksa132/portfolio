@@ -45,7 +45,7 @@ export default function Home() {
     const projectsSectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target.id === "projects") {
+          if (entry.target.id === "projects" && entry.intersectionRatio >= 0.3) {
             setActiveLink(entry.target.id);
           }
         });
