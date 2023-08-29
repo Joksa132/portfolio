@@ -8,9 +8,21 @@
   margin: 0;
 }
 
-html,
-body {
-  background-color: #1A1A1A;
+.bg-svg {
+  background-image: url("../public/star-bg.svg");
+}
+
+.contact-svg {
+  background-image: url("../public/star-bg2.svg");
+}
+
+@media (max-width: 750px) {
+
+  .bg-svg,
+  .contact-svg {
+    background-image: none;
+    background-color: #1A1A1A;
+  }
 }
 
 a {
