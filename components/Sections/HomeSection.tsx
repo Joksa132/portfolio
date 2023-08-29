@@ -17,7 +17,8 @@ export default function HomeSection({ setActiveLink, sectionRefs }: Props) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-6xl gap-4 max-[900px]:text-4xl max-sm:text-4xl max-[500px]:text-3xl max-[390px]:text-2xl"
+    <div
+      className="flex flex-col items-center justify-center h-screen text-6xl gap-4 max-[900px]:text-4xl max-sm:text-4xl max-[500px]:text-3xl max-[390px]:text-2xl"
       id='home'
       ref={sectionRefs.home}
     >
