@@ -6,6 +6,7 @@ import HomeSection from '@/components/Sections/HomeSection';
 import AboutSection from '@/components/Sections/AboutSection';
 import ProjectsSection from '@/components/Sections/ProjectsSection';
 import ContactSection from '@/components/Sections/ContactSection';
+import starBG from '@/public/star-bg.svg'
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState<string>("home")
@@ -77,7 +78,12 @@ export default function Home() {
   }, [sectionRefs, isAboutVisible]);
 
   return (
-    <main className='text-white scroll-smooth'>
+    <main
+      className='text-white scroll-smooth'
+      style={{
+        backgroundImage: `url(${starBG.src})`,
+      }}
+    >
       <Nav activeLink={activeLink} setActiveLink={setActiveLink} sectionRefs={sectionRefs} showNavBackground={showNavBackground} />
       <HomeSection setActiveLink={setActiveLink} sectionRefs={sectionRefs} />
       <AboutSection isAboutVisible={isAboutVisible} sectionRefs={sectionRefs} />
