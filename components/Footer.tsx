@@ -18,7 +18,10 @@ export default function Footer({ setActiveLink, sectionRefs }: Props) {
   }
 
   return (
-    <footer className="w-full py-6 max-[600px]:py-3 shadow-lg flex justify-center gap-10 items-center text-white mt-6" style={{ backgroundColor: "#272727" }}>
+    <footer
+      className="w-full py-4 max-[600px]:py-3 shadow-lg flex justify-center gap-10 items-center text-white mt-10"
+      style={{ backgroundColor: "#272727" }}
+    >
       <button className="rounded-3xl bg-blue-400 flex items-center justify-center hover:animate-bounce fixed bottom-10 right-10 z-50" onClick={() => handleButtonClick()}>
         <MdKeyboardDoubleArrowUp size={30} />
       </button>
