@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import Footer from '@/components/Footer';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
+import starBG from '@/public/star-bg2.svg'
 
 type Props = {
   sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };
@@ -37,7 +38,14 @@ export default function ContactSection({ sectionRefs, setActiveLink }: Props) {
   }
 
   return (
-    <section className='flex flex-col justify-between' id='contact' ref={sectionRefs.contact}>
+    <section
+      className='flex flex-col justify-between'
+      id='contact'
+      ref={sectionRefs.contact}
+      style={{
+        backgroundImage: `url(${starBG.src})`,
+      }}
+    >
       <div className='flex flex-col items-center'>
         <h2 className='text-6xl mt-20 border-b-8 border-blue-400 font-bold max-[550px]:text-5xl'>Contact</h2>
         <form ref={formRef} onSubmit={handleEmailSubmit} className='flex flex-col items-center gap-2 mt-10 w-1/4 max-xl:w-1/3 max-lg:w-2/4 max-[550px]:w-3/4'>
