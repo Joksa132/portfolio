@@ -8,7 +8,7 @@ type Props = {
 export default function TechnologyCard({ techName, techImg }: Props) {
 
   return (
-    <div className="py-4 border rounded-md border-blue-400 flex flex-col items-center gap-2">
+    <div className="py-4 border rounded-md border-blue-400 flex flex-col items-center gap-2 max-sm:p-3">
       <img
         src={techImg}
         alt={techName + 'image'}
