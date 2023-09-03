@@ -38,7 +38,7 @@ export default function AboutSection({ sectionRefs, isAboutVisible }: Props) {
               <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
             ))}
           </div>
-          <div className='hidden max-sm:flex max-sm:flex-wrap max-sm:gap-5 max-sm:justify-center'>
+          <div className={`hidden max-sm:flex opacity-0 max-sm:flex-wrap max-sm:gap-5 max-sm:justify-center ${isAboutVisible ? 'card-right-animation' : ''}`}>
             {technologies.map((technology, index) => (
               <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
             ))}
