@@ -28,13 +28,18 @@ export default function AboutSection({ sectionRefs, isAboutVisible }: Props) {
           learning with a constant drive to improve my skills in Web Development.
         </p>
         <div className="w-4/6 mt-10 grid gap-2 max-xl:w-5/6 max-lg:w-11/12">
-          <div className={`first-row grid grid-cols-5 gap-2 opacity-0 max-sm:grid-cols-3 max-[400px]:grid-cols-2 ${isAboutVisible ? 'card-left-animation' : ''}`}>
+          <div className={`first-row grid grid-cols-5 gap-2 opacity-0 max-sm:hidden ${isAboutVisible ? 'card-left-animation' : ''}`}>
             {firstFiveTechnologies.map((technology, index) => (
               <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
             ))}
           </div>
-          <div className={`second-row grid grid-cols-5 gap-2 opacity-0 max-sm:grid-cols-3 max-[400px]:grid-cols-2 ${isAboutVisible ? 'card-right-animation' : ''}`}>
+          <div className={`second-row grid grid-cols-5 gap-2 opacity-0 max-sm:hidden ${isAboutVisible ? 'card-right-animation' : ''}`}>
             {secondFiveTechnologies.map((technology, index) => (
+              <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
+            ))}
+          </div>
+          <div className='hidden max-sm:flex max-sm:flex-wrap max-sm:gap-5 max-sm:justify-center'>
+            {technologies.map((technology, index) => (
               <TechnologyCard key={index} techName={technology?.name} techImg={technology?.image} />
             ))}
           </div>
