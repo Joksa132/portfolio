@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import Nav from '@/components/Nav'
+import Nav from "@/components/Nav";
 import { useEffect, useRef, useState } from "react";
-import HomeSection from '@/components/Sections/HomeSection';
-import AboutSection from '@/components/Sections/AboutSection';
-import ProjectsSection from '@/components/Sections/ProjectsSection';
-import ContactSection from '@/components/Sections/ContactSection';
+import HomeSection from "@/components/Sections/HomeSection";
+import AboutSection from "@/components/Sections/AboutSection";
+import ProjectsSection from "@/components/Sections/ProjectsSection";
+import ContactSection from "@/components/Sections/ContactSection";
 
 export default function Home() {
-  const [activeLink, setActiveLink] = useState<string>("home")
+  const [activeLink, setActiveLink] = useState<string>("home");
   const [isAboutVisible, setIsAboutVisible] = useState<boolean>(false);
-  const [showNavBackground, setShowNavBackground] = useState<boolean>(false)
+  const [showNavBackground, setShowNavBackground] = useState<boolean>(false);
   const sectionRefs = {
     home: useRef<HTMLDivElement>(null),
     about: useRef<HTMLDivElement>(null),
@@ -24,7 +24,7 @@ export default function Home() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveLink(entry.target.id);
-            setShowNavBackground(entry.target.id !== 'home');
+            setShowNavBackground(entry.target.id !== "home");
           }
         });
       },
@@ -35,22 +35,28 @@ export default function Home() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.target.id === "about") {
-            setIsAboutVisible(isVisible => !isVisible ? entry.isIntersecting : true);
+            setIsAboutVisible((isVisible) =>
+              !isVisible ? entry.isIntersecting : true
+            );
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.1 }
     );
 
     const projectsSectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target.id === "projects" && entry.intersectionRatio >= 0.3) {
+          console.log(entry.intersectionRatio);
+          if (
+            entry.target.id === "projects" &&
+            entry.intersectionRatio >= 0.05
+          ) {
             setActiveLink(entry.target.id);
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRefs.about.current && !isAboutVisible) {
@@ -58,7 +64,7 @@ export default function Home() {
     }
 
     if (sectionRefs.projects.current && !isAboutVisible) {
-      projectsSectionObserver.observe(sectionRefs.projects.current)
+      projectsSectionObserver.observe(sectionRefs.projects.current);
     }
 
     Object.values(sectionRefs).forEach((sectionRef) => {
@@ -77,14 +83,17 @@ export default function Home() {
   }, [sectionRefs, isAboutVisible]);
 
   return (
-    <main
-      className='text-white scroll-smooth bg-svg'
-    >
-      <Nav activeLink={activeLink} setActiveLink={setActiveLink} sectionRefs={sectionRefs} showNavBackground={showNavBackground} />
+    <main className="text-white scroll-smooth bg-svg min-h-screen">
+      <Nav
+        activeLink={activeLink}
+        setActiveLink={setActiveLink}
+        sectionRefs={sectionRefs}
+        showNavBackground={showNavBackground}
+      />
       <HomeSection setActiveLink={setActiveLink} sectionRefs={sectionRefs} />
       <AboutSection isAboutVisible={isAboutVisible} sectionRefs={sectionRefs} />
       <ProjectsSection sectionRefs={sectionRefs} />
       <ContactSection setActiveLink={setActiveLink} sectionRefs={sectionRefs} />
-    </main >
-  )
+    </main>
+  );
 }
