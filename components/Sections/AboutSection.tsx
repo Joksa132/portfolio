@@ -23,9 +23,9 @@ export default function AboutSection({ sectionRefs, isAboutVisible }: Props) {
       </div>
       <div className="mt-5 flex flex-col items-center w-full">
         <p className="text-lg w-4/6 max-xl:w-5/6 max-lg:w-11/12 max-md:text-sm">
-          I am a Bachelor with Honours in Information Technology Engineering,
-          commited to continuous learning with a constant drive to improve my
-          skills in Web Development.
+          I am a Bachelor with Honours in Information Technologies, commited to
+          continuous learning with a constant drive to improve my skills in Web
+          Development.
         </p>
         <div className="w-4/6 mt-10 grid gap-2 max-xl:w-5/6 max-lg:w-11/12">
           <div
